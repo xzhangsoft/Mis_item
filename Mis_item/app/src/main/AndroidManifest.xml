@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mis_item">
-
+    <!-- 涉及网络权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 涉及SD卡读写权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +14,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name="com.example.anim.ValueMainActivity"></activity>
+        <activity android:name="com.example.anim.SimpleValueAnimActivity" />
+        <activity android:name="com.example.anim.LayoutAnimActivity" />
+        <activity android:name="com.example.webview.WebViewActivity" />
+        <activity android:name="com.example.anim.ObjectAnimatorActivity" />
+        <activity android:name="com.example.webview.LoginActivity" />
+        <activity android:name="com.example.anim.ValueAnimatorActivity" />
+        <activity android:name="com.example.anim.TweenActivity" />
+        <activity android:name="com.example.anim.AnimationMainActivity" />
+        <activity android:name="com.example.anim.DrawableActivity" />
+        <activity android:name="com.example.anim.ListViewAnimationActivity" />
+        <activity android:name="com.example.anim.ViewAnimationActivity" />
         <activity android:name="com.example.pic_glide.pictureActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

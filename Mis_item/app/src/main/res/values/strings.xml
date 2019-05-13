@@ -1,4 +1,8 @@
-<resources>
-    <string name="app_name">Mis_item</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name" tools:ignore="ExtraTranslation">Mis_item</string>
     <string name="btn_0">Picture</string>
+    <string name="username_label">Username</string>
+    <string name="password_label">Password</string>
+
+    <string name="login_btn">Login</string>
 </resources>
