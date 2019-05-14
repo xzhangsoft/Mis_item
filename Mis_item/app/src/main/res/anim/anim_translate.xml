@@ -3,7 +3,7 @@
     android:fromXDelta="0"  
     android:toXDelta="320"  
     android:fromYDelta="0"  
-    android:toYDelta="0"
+    android:toYDelta="320"
     android:duration="2000"/>
 
 

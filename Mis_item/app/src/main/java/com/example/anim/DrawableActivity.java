@@ -11,7 +11,7 @@ import com.example.mis_item.R;
 
 public class DrawableActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button btn_start,btn_stop;
+    Button btn_start, btn_stop;
     ImageView img_show;
     private AnimationDrawable anim;
 
@@ -43,4 +43,13 @@ public class DrawableActivity extends AppCompatActivity implements View.OnClickL
                 break;
         }
     }
+
+//    protected void start() {
+//        if (anim != null && !anim.isRunning()) {
+//            anim.start();
+//            Toast.makeText(DrawableActivity.this, "开始播放", Toast.LENGTH_SHORT).show();
+//            Log.v("DrawableActivity", "index 为5的帧持续时间为：" + anim.getDuration(5) + "毫秒");
+//            Log.v("DrawableActivity", "当前AnimationDrawable一共有" + anim.getNumberOfFrames() + "帧");
+//        }
+//    }
 }

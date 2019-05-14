@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -35,17 +36,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         start_ctrl = findViewById(R.id.start_ctrl);
         //设置动画，从自身位置的最下端向上滑动了自身的高度，持续时间为500ms
-//        final TranslateAnimation ctrlAnimation = new TranslateAnimation(
-//                TranslateAnimation.RELATIVE_TO_SELF, 0, TranslateAnimation.RELATIVE_TO_SELF, 0,
-//                TranslateAnimation.RELATIVE_TO_SELF, 1, TranslateAnimation.RELATIVE_TO_SELF, 0);
-//        ctrlAnimation.setDuration(200l);     //设置动画的过渡时间
-//        start_ctrl.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                start_ctrl.setVisibility(View.VISIBLE);
-//                start_ctrl.startAnimation(ctrlAnimation);
-//            }
-//        }, 2000);
+        final TranslateAnimation ctrlAnimation = new TranslateAnimation(
+                TranslateAnimation.RELATIVE_TO_SELF, 0, TranslateAnimation.RELATIVE_TO_SELF, 0,
+                TranslateAnimation.RELATIVE_TO_SELF, 1, TranslateAnimation.RELATIVE_TO_SELF, 0);
+        ctrlAnimation.setDuration(100l);     //设置动画的过渡时间
+        start_ctrl.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                start_ctrl.setVisibility(View.VISIBLE);
+                start_ctrl.startAnimation(ctrlAnimation);
+            }
+        }, 2);
 
         bindInit();
     }

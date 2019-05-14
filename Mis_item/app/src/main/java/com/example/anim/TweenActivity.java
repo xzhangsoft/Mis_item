@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
@@ -106,6 +107,8 @@ public class TweenActivity extends AppCompatActivity implements View.OnClickList
 
         animation.setFillAfter(true);
         animation.setDuration(1000);
+        animation.setInterpolator(new AccelerateInterpolator(10));
+//        animation.setInterpolator(new HesitateInterpolator(20));
         img_show.startAnimation(animation);
 
     }

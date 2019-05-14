@@ -36,16 +36,23 @@ public class WebViewActivity extends AppCompatActivity implements IJsBridge {
 
         mWebView = (WebView) findViewById(R.id.webView);
         webSettings = mWebView.getSettings();
+
+        mWebView.setWebViewClient(new WebViewClient());
         getIntentData();
         initWebSetting();
-//        openUrlDir();
-        openWebViewNetUrl();
+        openUrlDir();
+//        openWebViewNetUrl();
+//        loadData();
+    }
+
+    private void loadData() {
+        String body = "WebView.loadDataWithBaseURL(String baseUrl, String data, String mimeType, String encoding, String historyUrl))";
+        mWebView.loadDataWithBaseURL("https://www.baidu.com/", body, "text/html", "utf-8",null);
     }
 
     private void openUrlDir() {
         mWebView.getSettings().setJavaScriptEnabled(true);
-        mWebView.loadUrl("https://angular.io/");
-//        mWebView.loadUrl("http://www.baidu.com/");
+        mWebView.loadUrl("https://www.jianshu.com");
 
         mWebView.setWebViewClient(new WebViewClient() {
             //在webview里打开新链接

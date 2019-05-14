@@ -66,7 +66,7 @@ public class SimpleValueAnimActivity extends AppCompatActivity {
                 Float curValueFloat = (Float)animation.getAnimatedValue();
                 int curValue = curValueFloat.intValue();
 //                int curValue = (int)animation.getAnimatedValue();
-                tv.layout(curValue,curValue,curValue+tv.getWidth(),curValue+tv.getHeight());
+                tv.layout(curValue,curValue,curValue+tv.getWidth(),curValue +tv.getHeight());
 
             }
         });
@@ -93,8 +93,8 @@ public class SimpleValueAnimActivity extends AppCompatActivity {
             }
         });
         animator.start();
-        animator.setRepeatCount(2);
         animator.setRepeatMode(REVERSE);
+        animator.setRepeatCount(3);
 
 
     }
