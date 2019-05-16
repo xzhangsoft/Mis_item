@@ -241,8 +241,8 @@ public class Canvas2Activity extends AppCompatActivity implements View.OnClickLi
             canvas = new Canvas(baseBitmap);
             canvas.drawColor(Color.GREEN);
         }
-        paint.setAntiAlias(true);
-        paint.setStyle(Paint.Style.STROKE);
+        paint.setAntiAlias(true); //抗锯齿
+        paint.setStyle(Paint.Style.STROKE); //仅描边
         canvas.translate(canvas.getWidth() / 2, 600); //将位置移动画纸的坐标点:150,150
         canvas.drawCircle(0, 0, 300, paint); //画圆圈
         Paint tmpPaint = new Paint(paint); //小刻度画笔对象

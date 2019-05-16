@@ -28,7 +28,12 @@
         <activity android:name="com.example.anim.ListViewAnimationActivity" />
         <activity android:name="com.example.anim.ViewAnimationActivity" />
         <activity android:name="com.example.pic_glide.pictureActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name="com.example.canvas.CanvasActivity" />
         <activity android:name="com.example.canvas.Canvas2Activity" />
         <activity android:name="com.example.canvas.YellowManActivity" />
@@ -36,11 +41,7 @@
 
         </activity>
         <activity android:name="com.example.canvas.CanvasIndexActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
