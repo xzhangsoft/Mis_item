@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mis_item">
+
     <!-- 涉及网络权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- 涉及SD卡读写权限 -->
@@ -14,7 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.anim.ValueMainActivity"></activity>
+        <activity android:name="com.example.anim.ValueMainActivity" />
         <activity android:name="com.example.anim.SimpleValueAnimActivity" />
         <activity android:name="com.example.anim.LayoutAnimActivity" />
         <activity android:name="com.example.webview.WebViewActivity" />
@@ -27,7 +28,14 @@
         <activity android:name="com.example.anim.ListViewAnimationActivity" />
         <activity android:name="com.example.anim.ViewAnimationActivity" />
         <activity android:name="com.example.pic_glide.pictureActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" />
+        <activity android:name="com.example.canvas.CanvasActivity" />
+        <activity android:name="com.example.canvas.Canvas2Activity" />
+        <activity android:name="com.example.canvas.YellowManActivity" />
+        <activity android:name="com.example.canvas.BallActivity">
+
+        </activity>
+        <activity android:name="com.example.canvas.CanvasIndexActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
