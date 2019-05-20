@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    tools:context=".MainActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_resume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="重新画图" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="保存图片" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <Button
+            android:id="@+id/btn_red"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:background="#ff0000"
+            android:layout_marginRight="10dp"
+            android:text="" />
+        <Button
+            android:id="@+id/btn_orange"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:background="#faa755"
+            android:layout_marginRight="10dp"
+            android:text="" />
+        <Button
+            android:id="@+id/btn_yellow"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:background="#FFFF00"
+            android:layout_marginRight="10dp"
+            android:text="" />
+        <Button
+            android:id="@+id/btn_green"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:background="#00FF00"
+            android:layout_marginRight="10dp"
+            android:text="" />
+        <Button
+            android:id="@+id/btn_cyan"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:background="#00FFFF"
+            android:layout_marginRight="10dp"
+            android:text="" />
+        <Button
+            android:id="@+id/btn_blue"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:background="#0000FF"
+            android:layout_marginRight="10dp"
+            android:text="" />
+        <Button
+            android:id="@+id/btn_purple"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:background="#FF00FF"
+            android:layout_marginRight="10dp"
+            android:text="" />
+        <Button
+            android:id="@+id/btn_black"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:layout_marginRight="10dp"
+            android:text="" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <EditText
+            android:id="@+id/stroke_input"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_stroke"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="宽度" />
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/iv_canvas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

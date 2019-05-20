@@ -28,19 +28,23 @@
         <activity android:name="com.example.anim.ListViewAnimationActivity" />
         <activity android:name="com.example.anim.ViewAnimationActivity" />
         <activity android:name="com.example.pic_glide.pictureActivity" />
-        <activity android:name=".MainActivity" >
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name="com.example.canvas.CanvasActivity" />
         <activity android:name="com.example.canvas.Canvas2Activity" />
         <activity android:name="com.example.canvas.YellowManActivity" />
-        <activity android:name="com.example.canvas.BallActivity">
-
-        </activity>
-        <activity android:name="com.example.canvas.CanvasIndexActivity">
+        <activity android:name="com.example.canvas.BallActivity" />
+        <activity android:name="com.example.canvas.CanvasIndexActivity" />
+        <activity android:name="com.example.custom_view.CustomViewActivity"></activity>
+        <activity android:name="com.example.custom_view.BasicActivity" />
+        <activity android:name="com.example.custom_view.ListActivity" />
+        <activity android:name="com.example.canvas.DrawActivity"></activity>
+        <activity android:name="com.example.canvas.IronmanActivity">
 
         </activity>
     </application>

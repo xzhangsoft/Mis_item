@@ -16,7 +16,7 @@ public class CanvasIndexActivity extends AppCompatActivity implements View.OnCli
     private Button btn_basic;
     private Button btn_ball;
     private Button btn_drawYellow;
-    private Button btn_yellow;
+    private Button btn_ironman;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,12 +30,12 @@ public class CanvasIndexActivity extends AppCompatActivity implements View.OnCli
         btn_basic = (Button) findViewById(R.id.btn_basic);
         btn_ball = (Button) findViewById(R.id.btn_ball);
         btn_drawYellow = (Button) findViewById(R.id.btn_drawYellow);
-        btn_yellow = (Button) findViewById(R.id.btn_yellow);
+        btn_ironman = (Button) findViewById(R.id.btn_ironman);
 
         btn_basic.setOnClickListener(this);
         btn_ball.setOnClickListener(this);
         btn_drawYellow.setOnClickListener(this);
-        btn_yellow.setOnClickListener(this);
+        btn_ironman.setOnClickListener(this);
     }
 
     @Override
@@ -50,8 +50,8 @@ public class CanvasIndexActivity extends AppCompatActivity implements View.OnCli
             case R.id.btn_drawYellow:
                 goActivity(YellowManActivity.class);
                 break;
-            case R.id.btn_yellow:
-                goActivity(CanvasActivity.class);
+            case R.id.btn_ironman:
+                goActivity(IronmanActivity.class);
                 break;
         }
     }

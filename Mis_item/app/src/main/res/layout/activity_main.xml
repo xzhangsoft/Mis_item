@@ -38,6 +38,15 @@
             android:background="@drawable/btn"
             android:text="Canvas"
             android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/custom"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:background="@drawable/btn"
+            android:text="Custom view"
+            android:textAllCaps="false"/>
 
         <Button
             android:id="@+id/webview"
@@ -48,6 +57,7 @@
             android:background="@drawable/btn"
             android:text="Webview"
             android:textAllCaps="false"/>
+
 
     </LinearLayout>
 

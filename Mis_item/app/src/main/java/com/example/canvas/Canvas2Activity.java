@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
+import android.graphics.Region;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -34,8 +35,16 @@ public class Canvas2Activity extends AppCompatActivity implements View.OnClickLi
     private Button btn_textPath;
     private Button btn_clock;
     private Button btn_paintStyle;
+    private Button btn_pathTest;
+    private Button btn_translate;
+    private Button btn_rotate;
+    private Button btn_scale;
+    private Button btn_skew;
+    private Button btn_clip;
+
     private Timer timer;
     private TimerTask task;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,9 +54,7 @@ public class Canvas2Activity extends AppCompatActivity implements View.OnClickLi
         paint.setStrokeWidth(5);
         paint.setColor(Color.RED);
 
-
         bindViews();
-
     }
 
     @Override
@@ -64,9 +71,9 @@ public class Canvas2Activity extends AppCompatActivity implements View.OnClickLi
                 iv_canvas.getHeight(), Bitmap.Config.ARGB_8888);
         canvas = new Canvas(baseBitmap);
         canvas.drawColor(Color.GREEN);
-        if (timer !=null)
+        if (timer != null)
             timer.cancel();
-        if (task !=null)
+        if (task != null)
             task.cancel();
     }
 
@@ -82,6 +89,12 @@ public class Canvas2Activity extends AppCompatActivity implements View.OnClickLi
         btn_textPath = (Button) findViewById(R.id.btn_textPath);
         btn_clock = (Button) findViewById(R.id.btn_clock);
         btn_paintStyle = (Button) findViewById(R.id.btn_paintStyle);
+        btn_pathTest = (Button) findViewById(R.id.btn_pathTest);
+        btn_translate = (Button) findViewById(R.id.btn_translate);
+        btn_rotate = (Button) findViewById(R.id.btn_rotate);
+        btn_scale = (Button) findViewById(R.id.btn_scale);
+        btn_skew = (Button) findViewById(R.id.btn_skew);
+        btn_clip = (Button) findViewById(R.id.btn_clip);
 
         btn_line.setOnClickListener(this);
         btn_rect.setOnClickListener(this);
@@ -92,6 +105,12 @@ public class Canvas2Activity extends AppCompatActivity implements View.OnClickLi
         btn_textPath.setOnClickListener(this);
         btn_clock.setOnClickListener(this);
         btn_paintStyle.setOnClickListener(this);
+        btn_pathTest.setOnClickListener(this);
+        btn_translate.setOnClickListener(this);
+        btn_rotate.setOnClickListener(this);
+        btn_scale.setOnClickListener(this);
+        btn_skew.setOnClickListener(this);
+        btn_clip.setOnClickListener(this);
     }
 
     @Override
@@ -119,13 +138,126 @@ public class Canvas2Activity extends AppCompatActivity implements View.OnClickLi
                 canvasDrawTextPath();
                 break;
             case R.id.btn_clock:
-
                 drawClock();
                 break;
             case R.id.btn_paintStyle:
                 switchPaint();
                 break;
+            case R.id.btn_pathTest:
+                pathTest();
+                break;
+            case R.id.btn_translate:
+                translateTest();
+                break;
+            case R.id.btn_rotate:
+                rotate();
+                break;
+            case R.id.btn_scale:
+                scale();
+                break;
+            case R.id.btn_skew:
+                skew();
+                break;
+            case R.id.btn_clip:
+                clip();
+                break;
         }
+    }
+
+    public void clip() {
+        if (baseBitmap != null) {
+            createNewCanvas();
+        }
+        paint.setAntiAlias(true);
+        paint.setColor(Color.RED);
+        canvas.drawColor(Color.BLUE);
+        Path path = new Path();
+        path.addCircle(120, 70, 50, Path.Direction.CCW);
+        canvas.clipOutPath(path);
+        canvas.drawColor(Color.GREEN);
+        iv_canvas.setImageBitmap(baseBitmap);
+    }
+
+    public void pathTest() {
+        if (baseBitmap != null) {
+            createNewCanvas();
+        }
+        Path path = new Path();
+        path.lineTo(100, 100);
+        path.lineTo(800, 100);
+        canvas.drawPath(path, paint);
+        path.reset();//此方法可以将path的坐标重置到0，0， 同时之前的路径会消失，后面再执行drawpath，前面的路径不会执行
+        path.lineTo(500, 800);
+        path.lineTo(500, 600);
+        canvas.drawPath(path, paint);
+        iv_canvas.setImageBitmap(baseBitmap);
+    }
+
+    public void translateTest() {
+        if (baseBitmap != null) {
+            createNewCanvas();
+        }
+        canvas.drawCircle(100, 100, 90, paint);
+        canvas.save();//保存当前canvas状态。
+        canvas.translate(100,100);
+        paint.setColor(Color.BLUE);
+        canvas.drawCircle(100, 100, 90, paint);
+        canvas.restore();//恢复之前保存的canvas状态。
+        paint.setColor(Color.YELLOW);
+        canvas.drawCircle(100, 100, 50, paint);
+
+        iv_canvas.setImageBitmap(baseBitmap);
+    }
+
+    public void scale() {
+        if (baseBitmap != null) {
+            createNewCanvas();
+        }
+        paint.setAntiAlias(true);
+        paint.setColor(Color.RED);
+        canvas.drawColor(Color.BLUE);
+        canvas.save();
+        canvas.scale(0.5f,0.5f);//x,y均缩小一半
+        canvas.drawCircle(100,100,50,paint);
+        canvas.restore();
+        paint.setColor(Color.WHITE);
+        canvas.drawCircle(100,100,50,paint);
+
+        iv_canvas.setImageBitmap(baseBitmap);
+    }
+
+    public void rotate() {
+        if (baseBitmap != null) {
+            createNewCanvas();
+        }
+        paint.setAntiAlias(true);
+        canvas.drawColor(Color.BLUE);
+        paint.setColor(Color.WHITE);
+        canvas.drawRect(new RectF(100,100,200,200),paint);
+        canvas.save();
+        canvas.rotate(45);
+//        canvas.rotate(45,200,200);
+        paint.setColor(Color.RED);
+        canvas.drawRect(new RectF(100,100,200,200),paint);
+        canvas.restore();
+
+        iv_canvas.setImageBitmap(baseBitmap);
+    }
+
+    public void skew() {
+        if (baseBitmap != null) {
+            createNewCanvas();
+        }
+        paint.setAntiAlias(true);
+        canvas.drawColor(Color.BLUE);
+        paint.setColor(Color.WHITE);
+        canvas.drawRect(new RectF(0,0,180,180),paint);
+        canvas.save();
+        canvas.skew(0,1);//sx 为倾斜角度的 tan 值；sy 为倾斜角度的 tan 值
+        paint.setColor(Color.RED);
+        canvas.drawRect(new RectF(0,0,180,180),paint);
+        canvas.restore();
+        iv_canvas.setImageBitmap(baseBitmap);
     }
 
     public void switchPaint() {
@@ -232,8 +364,9 @@ public class Canvas2Activity extends AppCompatActivity implements View.OnClickLi
                 }
             }
         };
-        timer.schedule(task,0,1000);
+        timer.schedule(task, 0, 1000);
     }
+
     public void canvasDrawClock() {
         if (baseBitmap != null) {
             baseBitmap = Bitmap.createBitmap(iv_canvas.getWidth(),
@@ -253,7 +386,7 @@ public class Canvas2Activity extends AppCompatActivity implements View.OnClickLi
         for (int i = 0; i < count; i++) {
             if (i % 5 == 0) {
                 canvas.drawLine(0f, y, 0, y + 16f, paint);
-                canvas.drawText(i == 0? "12":String.valueOf(i / 5), -25f, -y + 50f, tmpPaint);
+                canvas.drawText(i == 0 ? "12" : String.valueOf(i / 5), -25f, -y + 50f, tmpPaint);
             } else {
                 canvas.drawLine(0f, y, 0f, y + 10f, tmpPaint);
             }
@@ -267,20 +400,20 @@ public class Canvas2Activity extends AppCompatActivity implements View.OnClickLi
         tmpPaint.setColor(Color.YELLOW);
         canvas.drawCircle(0, 0, 18, tmpPaint);
         double basicAngle = Math.PI * 2 / 60;
-        now =  Calendar.getInstance();
+        now = Calendar.getInstance();
         int currentSecond = now.get(Calendar.SECOND);
         double currentMinute = now.get(Calendar.MINUTE);
         double hourx = now.get(Calendar.HOUR);
-        double currentHour = (now.get(Calendar.HOUR_OF_DAY)+currentMinute/60) *5;
+        double currentHour = (now.get(Calendar.HOUR_OF_DAY) + currentMinute / 60) * 5;
         //fenzhen
         paint.setStrokeWidth(10);
-        canvas.drawLine(0, 0, (float)(200*Math.sin(basicAngle*currentMinute)), -(float)(200*Math.cos(basicAngle*currentMinute)), paint);
+        canvas.drawLine(0, 0, (float) (200 * Math.sin(basicAngle * currentMinute)), -(float) (200 * Math.cos(basicAngle * currentMinute)), paint);
         //shizhen 3dian
         paint.setStrokeWidth(16);
-        canvas.drawLine(0, 0, (float)(160*Math.sin(basicAngle*currentHour)), -(float)(160*Math.cos(basicAngle*currentHour)), paint);
+        canvas.drawLine(0, 0, (float) (160 * Math.sin(basicAngle * currentHour)), -(float) (160 * Math.cos(basicAngle * currentHour)), paint);
         paint.setStrokeWidth(6);
         //miaozhen
-        canvas.drawLine(0, 0, (float)(210*Math.sin(basicAngle*currentSecond)), -(float)(210*Math.cos(basicAngle*currentSecond)), paint);
+        canvas.drawLine(0, 0, (float) (210 * Math.sin(basicAngle * currentSecond)), -(float) (210 * Math.cos(basicAngle * currentSecond)), paint);
         iv_canvas.setImageBitmap(baseBitmap);
 
     }

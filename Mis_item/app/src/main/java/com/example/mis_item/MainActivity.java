@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.example.anim.AnimationMainActivity;
 import com.example.canvas.CanvasIndexActivity;
+import com.example.custom_view.CustomViewActivity;
 import com.example.pic_glide.pictureActivity;
 import com.example.webview.LoginActivity;
 
@@ -22,11 +23,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button btn_anmi = (Button) findViewById(R.id.animation);
         Button btn_webview = (Button) findViewById(R.id.webview);
         Button btn_canvas = (Button) findViewById(R.id.canvas);
+        Button btn_custom = (Button) findViewById(R.id.custom);
 
         btn_pic.setOnClickListener(this);
         btn_anmi.setOnClickListener(this);
         btn_webview.setOnClickListener(this);
         btn_canvas.setOnClickListener(this);
+        btn_custom.setOnClickListener(this);
     }
 
     @Override
@@ -47,6 +50,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.canvas:
                 Intent intent_canvas = new Intent(MainActivity.this, CanvasIndexActivity.class);
                 startActivity(intent_canvas);
+                break;
+            case R.id.custom:
+                Intent intent_custom = new Intent(MainActivity.this, CustomViewActivity.class);
+                startActivity(intent_custom);
                 break;
         }
     }
