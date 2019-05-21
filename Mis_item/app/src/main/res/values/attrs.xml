@@ -4,5 +4,8 @@
         <attr name="circle_color" format="color"/>
         <attr name="circle_width" format="dimension"/>
         <attr name="circle_angle" format="integer"/>
+        <attr name="circle_text" format="string"/>
     </declare-styleable>
+
+    <attr name="StyleInTheme" format="reference"/>
 </resources>
